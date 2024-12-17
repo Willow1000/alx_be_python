@@ -12,7 +12,6 @@ match priority:
         case _:
             priority_message = "unknown priority task"
         if time_bound == "yes":
-            reminder_message = f"Reminder: '{task}' is a {priority_message} that requires immediate attention today!"
+            print(f"Reminder: '{task}' is a {priority_message} that requires immediate attention today!")
         else:
-            reminder_message = f"Note: '{task}' is a {priority_message}. Consider completing it when you have free time."
-print(reminder_message)
+            print(f"Note: '{task}' is a {priority_message}. Consider completing it when you have free time.")
