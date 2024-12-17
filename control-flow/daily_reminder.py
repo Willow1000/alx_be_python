@@ -15,5 +15,4 @@ match priority:
             reminder_message = f"Reminder: '{task}' is a {priority_message} that requires immediate attention today!"
         else:
             reminder_message = f"Note: '{task}' is a {priority_message}. Consider completing it when you have free time."
-
-    
+print(reminder_message)
