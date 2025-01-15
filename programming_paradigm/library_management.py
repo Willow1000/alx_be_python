@@ -5,7 +5,8 @@ class Book:
         self._is_checked_out = None
     def return_book(self):
         self._is_checked_out = False
-
+    def check_out_book(self):
+        self._is_checked_out = True
 class Library:
     def __init__(self):
         self._books = []
