@@ -11,5 +11,5 @@ class BankAccount:
         self.account_balance -= amount
         return True
     def display_balance(self):
-        print("Current Balance: %.2f", self.account_balance)
+        print("Current Balance: %.2f", %self.account_balance)
     
