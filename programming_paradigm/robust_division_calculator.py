@@ -4,6 +4,6 @@ def safe_divide(numerator,denominator):
         float_denominator = float(denominator)
         return float_numerator / float_denominator
     except ValueError:
-        print(Error: Please enter numeric values only.)
+        print("Error: Please enter numeric values only.")
     except ZeroDivisionError:
-        print(Error: Division by zero is undefined.)    
+        print("Error: Cannot divide by zero.")    
