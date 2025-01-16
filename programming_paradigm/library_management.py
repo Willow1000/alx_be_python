@@ -2,38 +2,44 @@ class Book:
     def __init__(self,title,author):
         self.title = title
         self.author = author
-        self._is_checked_out = None
+        self.__is_checked_out = False
     def return_book(self):
-        self._is_checked_out = False
+        if self.__is_checked_out:
+            self.__is_checked_out = False
+            return True
+        return False
     def check_out_book(self):
-        self._is_checked_out = True
+        if self.__is_checked_out:
+            return False
+        self.__is_checked_out = True
+        return True
+    
+    def is_checked_out(self):
+        return self.__is_checked_out
+    
+    
 class Library:
     def __init__(self):
-        self._books = []
+        self.__books = []
     
     def add_book(self, book):
-        self._books.append(book)
+        self.__books.append(book)
 
     def check_out_book(self,title):
-        for book in self._books:
+        for book in self.__books:
             if book.title == title:
-                if book._is_checked_out:
-                    return False
-                book._is_checked_out = True
-                return True
-        return False    
-
+               return book.check_out_book()
+        return False
+        
     def return_book(self,title):
-        for book in self._books:
+        for book in self.__books:
             if book.title == title:
-                if book._is_checked_out:
-                    book._is_checked_out = False
-                    return True
+                return book.return_book()
         return False    
 
     def list_available_books(self):
         available_books = []
-        for book in self._books:
-            if not book._is_checked_out:
+        for book in self.__books:
+            if not book.is_checked_out():
                 available_books.append(book.title)
-        return available_books    
+        print(*available_books,sep=',')       
